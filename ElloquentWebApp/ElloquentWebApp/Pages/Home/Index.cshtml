@@ -1,0 +1,42 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@*<script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>*@
+<script src="https://npmcdn.com/parse@1.9.2/dist/parse.min.js"></script>
+@*<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>*@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+
+<script>
+    Parse.initialize("hm3HmqcHxgfMQxP2SF0Ue0at67HFqqxeYq5ZxKoR", "nweYdxbTDxFnWp85o2xxqNu6Gl8zDKnaZyxGWkAe");
+    Parse.serverURL = 'https://parseapi.back4app.com'
+</script>
+
+<div class="container" style="padding-top: 15px;" ng-hide="loggedIn == true">
+    <div style="width: 40%; margin: 0 auto;">
+        <div style="font-size: 40px; text-align: center;">Log In</div>
+        <input class="form-control" style="margin-top: 15px;" type="text" placeholder="Username" id="test" ng-model="username" />
+        <input class="form-control" style="margin-top: 15px;" type="text" placeholder="Password" ng-model="password" />
+        <input class="btn btn-primary btn-block" style="margin-top: 15px;" type="submit" id="passCode" value="Log In" ng-click="login()" ng-disabled="!username || !password" />
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var User = Parse.Object.extend("User");
+        var query = new Parse.Query(User);
+        $("#test").val();
+
+        query.find({
+            success: function (results) {
+                for (i = 0; i < results.length; i++) {
+                    var username = results[i].get("username");
+                }
+            },
+            error: function (error) {
+                alert("Error: " + error.code + " " + error.message);
+            }
+        });
+    });
+</script>
