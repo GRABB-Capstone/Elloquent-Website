@@ -28,14 +28,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-page="/Index" class="navbar-brand">Elloquent</a>
+                <a asp-page="/Index" class="navbar-brand">
+                    <span><IMG SRC="logo.png" ALT="some text" WIDTH=32 HEIGHT=32></span>
+                    <span>Elloquent</span>
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @*<li class="nav-item">
             <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
         </li>*@
-                    <li><a asp-page="/Login">Login</a></li>
+                    <li><a asp-page="/Login/Index">Login</a></li>
                     <li><a asp-page="/Home/Index">Home</a></li>
                     <li><a asp-page="/Home/About">About</a></li>
                     <li><a asp-page="/Home/Contact">Contact</a></li>
